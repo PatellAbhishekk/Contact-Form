@@ -8,15 +8,18 @@ importers:
 
   .:
     dependencies:
-      '@tabler/icons-react':
-        specifier: ^3.24.0
-        version: 3.24.0(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
       react-dom:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
+      react-icon:
+        specifier: ^1.0.0
+        version: 1.0.0(babel-runtime@5.8.38)(react@18.3.1)
+      react-icons:
+        specifier: ^5.4.0
+        version: 5.4.0(react@18.3.1)
     devDependencies:
       '@eslint/js':
         specifier: ^9.15.0
@@ -476,14 +479,6 @@ packages:
   '@swc/types@0.1.17':
     resolution: {integrity: sha512-V5gRru+aD8YVyCOMAjMpWR1Ui577DD5KSJsHP8RAxopAH22jFz6GZd/qxqjO6MJHQhcsjvjOFXyDhyLQUnMveQ==}
 
-  '@tabler/icons-react@3.24.0':
-    resolution: {integrity: sha512-m9c7TmlcDmKqvZAasG5rv1YvazZDrVEhNdNFa2d1Bzotc0dh+iceFdiZCEcYPDb5UcRyLAMvOaOC9y/5sfMMWw==}
-    peerDependencies:
-      react: '>= 16'
-
-  '@tabler/icons@3.24.0':
-    resolution: {integrity: sha512-qNis9e90QcdxAGV3wNIeX0Ba2R7ktm0cnqOToKHJfC2kj3fvJwEVLsw63K0/fm7NW8rSZjDSTQRmMnSg8g/wrg==}
-
   '@types/estree@1.0.6':
     resolution: {integrity: sha512-AYnb1nQyY49te+VRAVgmzfcgjYS91mY5P0TKUDCLEM+gNnA+3T6rWITXRLYCpahpqSQbN5cE+gHpnPyXjHWxcw==}
 
@@ -585,6 +580,9 @@ packages:
     resolution: {integrity: sha512-wvUjBtSGN7+7SjNpq/9M2Tg350UZD3q62IFZLbRAR1bSMlCo1ZaeW+BJ+D090e4hIIZLBcTDWe4Mh4jvUDajzQ==}
     engines: {node: '>= 0.4'}
 
+  babel-runtime@5.8.38:
+    resolution: {integrity: sha512-KpgoA8VE/pMmNCrnEeeXqFG24TIH11Z3ZaimIhJWsin8EbfZy3WzFKUTIan10ZIDgRVvi9EkLbruJElJC9dRlg==}
+
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
 
@@ -647,6 +645,10 @@ packages:
 
   concat-map@0.0.1:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
+
+  core-js@1.2.7:
+    resolution: {integrity: sha512-ZiPp9pZlgxpWRu0M+YWbm6+aQ84XEfH1JRXvfOc/fILWI0VKhLC2LX13X1NYq4fULzLMq7Hfh43CSo2/aIaUPA==}
+    deprecated: core-js@<3.23.3 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Some versions have web compatibility issues. Please, upgrade your dependencies to the actual version of core-js.
 
   cross-spawn@7.0.6:
     resolution: {integrity: sha512-uV2QOWP2nWzsy2aMp8aRibhi9dlzF5Hgh5SHaB9OiTGEyDTiJJyx0uy51QXdyWbtAHNua4XJzUKca3OzKUd3vA==}
@@ -1380,6 +1382,17 @@ packages:
     peerDependencies:
       react: ^18.3.1
 
+  react-icon@1.0.0:
+    resolution: {integrity: sha512-VzSlpBHnLanVw79mOxyq98hWDi6DlxK9qPiZ1bAK6bLurMBCaxO/jjyYUrRx9+JGLc/NbnwOmyE/W5Qglbb2QA==}
+    peerDependencies:
+      babel-runtime: ^5.3.3
+      react: '>=0.12.0'
+
+  react-icons@5.4.0:
+    resolution: {integrity: sha512-7eltJxgVt7X64oHh6wSWNwwbKTCtMfK35hcjvJS0yxEAhPM8oUKdS3+kqaW1vicIltw+kR2unHaa12S9pPALoQ==}
+    peerDependencies:
+      react: '*'
+
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
@@ -1936,13 +1949,6 @@ snapshots:
     dependencies:
       '@swc/counter': 0.1.3
 
-  '@tabler/icons-react@3.24.0(react@18.3.1)':
-    dependencies:
-      '@tabler/icons': 3.24.0
-      react: 18.3.1
-
-  '@tabler/icons@3.24.0': {}
-
   '@types/estree@1.0.6': {}
 
   '@types/json-schema@7.0.15': {}
@@ -2069,6 +2075,10 @@ snapshots:
     dependencies:
       possible-typed-array-names: 1.0.0
 
+  babel-runtime@5.8.38:
+    dependencies:
+      core-js: 1.2.7
+
   balanced-match@1.0.2: {}
 
   binary-extensions@2.3.0: {}
@@ -2137,6 +2147,8 @@ snapshots:
   commander@4.1.1: {}
 
   concat-map@0.0.1: {}
+
+  core-js@1.2.7: {}
 
   cross-spawn@7.0.6:
     dependencies:
@@ -2910,6 +2922,15 @@ snapshots:
       loose-envify: 1.4.0
       react: 18.3.1
       scheduler: 0.23.2
+
+  react-icon@1.0.0(babel-runtime@5.8.38)(react@18.3.1):
+    dependencies:
+      babel-runtime: 5.8.38
+      react: 18.3.1
+
+  react-icons@5.4.0(react@18.3.1):
+    dependencies:
+      react: 18.3.1
 
   react-is@16.13.1: {}
 
