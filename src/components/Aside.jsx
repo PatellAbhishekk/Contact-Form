@@ -51,7 +51,7 @@ function Aside() {
       </section>
 
       {/* social */}
-      <section className="flex gap-2 text-lime-700">
+      <section className="flex gap-2 text-blue-700">
         <RiFacebookBoxLine size={25} />
         <RiTwitterXFill size={25} />
         <RiLinkedinBoxLine size={25} />

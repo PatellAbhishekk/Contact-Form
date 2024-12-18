@@ -1,39 +1,43 @@
-import { useState } from "react";
+import { useForm } from "react-hook-form";
 import { RiSparklingFill } from "react-icons/ri";
 import Intro from "@/components/Intro";
-import config from "@/pages/utils/config";
+import configs from "@/utils/configs";
+import spamDetected from "../utils/spamDetected";
+
+const services = [
+  "Website Design",
+  "Content",
+  "UX Design",
+  "Strategy",
+  "User Research",
+  "Other",
+];
 
 function Form() {
-  const [fullname, setFullname] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [selectedServices, setSelectedServices] = useState([]);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      fullname: "",
+      email: "",
+      message: "",
+      services: [],
+    },
+  });
 
-  const services = [
-    "Website Design",
-    "Content",
-    "UX Design",
-    "Strategy",
-    "User Research",
-    "Other",
-  ];
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(selectedServices);
-  };
-
-  // @desc This function is invoked by clicking on checkbox
-  // @desc Logs the value
-  const handleCheckbox = (value, checked) => {
-    setSelectedServices((prevState) => {
-      const updatedServices = [
-        checked
-          ? [...prevState, value]
-          : prevState.filter((item) => item !== value),
-      ];
-      return updatedServices;
-    });
+  const handleFormSubmit = async (data) => {
+    try {
+      const spam = await spamDetected(data.message);
+      if (spam.isProfanity) {
+        console.log("Contains some bad words");
+      } else {
+        alert("Form could be submitted");
+      }
+    } catch (err) {
+      console.error("Error occured", err);
+    }
   };
 
   return (
@@ -41,36 +45,57 @@ function Form() {
       <Intro />
       <form
         className="flex flex-col gap-1"
-        action={config.submitUrl}
+        onSubmit={handleSubmit(handleFormSubmit)}
       >
         {/* Inputs */}
         <input
           type="text"
-          name={config.Fullname}
+          {...register("fullname", {
+            required: "Please enter your full name",
+            minLength: {
+              value: 4,
+              message: "Must be of four or more characters",
+            },
+          })}
           id="fullname"
           placeholder="Your name"
           className="border-b border-stone-700 p-2 placeholder-gray-700 md:bg-blue-400"
-          value={fullname}
-          onChange={(e) => setFullname(e.target.value)}
         />
+        {errors.fullname && (
+          <p className="text-red-500">{errors.fullname.message}</p>
+        )}
+
         <input
           type="email"
-          name={config.Email}
+          {...register("email", {
+            required: "Please enter your email!",
+            pattern: {
+              value: /[\w]*@*[a-z]*\.*[\w]{5,}(\.)*(com)*(@gmail\.com)/,
+              message: "Only gmail is allowed.",
+            },
+          })}
           id="email"
           placeholder="you@company.com"
           className="border-b border-stone-700 p-2 placeholder-gray-700 md:bg-blue-400"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
         />
+        {errors.email && <p className="text-red-500">{errors.email.message}</p>}
+
         <input
           type="text"
-          name={config.Message}
+          {...register("message", {
+            required: "Please enter a message!",
+            minLength: {
+              value: 5,
+              message: "Make it a bit more descriptive.",
+            },
+          })}
           id="message"
           placeholder="Tell us a bit about your project..."
           className="h-24 border-b border-stone-700 p-2 placeholder-gray-700 md:bg-blue-400"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
         />
+        {errors.message && (
+          <p className="text-red-500">{errors.message.message}</p>
+        )}
 
         <p className="my-5 text-gray-800">How can we help?</p>
 
@@ -81,15 +106,19 @@ function Form() {
               <label key={idx} className="flex cursor-pointer gap-2">
                 <input
                   type="checkbox"
-                  name={config.service}
-                  id=""
+                  value={service}
+                  {...register("services", {
+                    required: "Enter atleast one!",
+                  })}
                   className="size-5"
-                  onClick={(e) => handleCheckbox(service, e.target.checked)}
                 />
                 {service}
               </label>
             );
           })}
+          {errors.services && (
+            <p className="text-red-500">{errors.services.message}</p>
+          )}
         </div>
 
         {/* Submit */}
@@ -97,7 +126,7 @@ function Form() {
           type="submit"
           className="flex items-center justify-center gap-2 rounded bg-zinc-950 p-2 text-white"
         >
-          Let's get started{" "}
+          Let's get started
           <RiSparklingFill className="text-blue-500" size={20} />
         </button>
       </form>
