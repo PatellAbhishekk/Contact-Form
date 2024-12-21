@@ -12,21 +12,13 @@ This is a simple contact form built with JavaScript, Vite, tailwindcss, Tailwind
 - TailwindCSS
 - Tailwind Prettier
 - React-hook-form
-
-## Getting Started
-
-To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-- Node.js
-- NPM
+- Google Form
 
 ### Installation
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/jsvigneshkanna/tailwind-react-contact-form.git
+   git clone https://github.com/PatellAbhishekk/Contact-Form.git
    ```
 2. Install NPM packages
    ```sh
@@ -36,7 +28,6 @@ To get a local copy up and running follow these simple example steps.
    ```sh
    npm run dev
    ```
-4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Deployment
 
@@ -48,6 +39,15 @@ Once you're happy with your project, all you need to deploy it somewhere is to p
 - [Tailwind Prettier](https://github.com/tailwindlabs/tailwindcss-prettier)
 - [React-hook-form](https://react-hook-form.com/)
 - [Vite](https://vitejs.dev/)
+- [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSd-0-x-i7-3-6-9-8-7-5-4-3-2-1-0/viewform)
+
+## Improvements
+
+- Add responsiveness for mobile devices.
+
+- Implement form validation for better user experience.
+
+- Integrate backend services to process form submissio
 
 ## Contributing
 
@@ -64,4 +64,6 @@ Don't forget to give the project a star! Thanks again!
 
 ## License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Distributed under the MIT License.
+
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://raw.githubusercontent.com/PatellAbhishekk/Contact-Form/refs/heads/main/LICENSE)
