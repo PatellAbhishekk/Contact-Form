@@ -1,8 +1,9 @@
 export default {
-    Fullname: import.meta.env.VITE_FIELD_FULLNAME,
-    Email: import.meta.env.VITE_FIELD_EMAIL,
-    Message: import.meta.env.VITE_FIELD_MESSAGE,
-    Services: import.meta.env.VITE_FIELD_SERVICES,
-    submitUrl: import.meta.env.VITE_SUBMIT_URL,
-    userResponseUrl: import.meta.env.VITE_USER_RESPONSE,
-};
+    fullname: import.meta.env.VITE_FIELD_FULLNAME,
+    email: import.meta.env.VITE_FIELD_EMAIL,
+    message: import.meta.env.VITE_FIELD_DESCRIPTION,
+    services: import.meta.env.VITE_FIELD_HELP,
+    submit: import.meta.env.VITE_SUBMIT_URL,
+    userResponse: import.meta.env.VITE_USER_RESPONSE,
+  };
+  

@@ -16,7 +16,7 @@ function Submission() {
         <div className="w-full max-w-lg rounded-lg bg-white p-6 shadow-md">
           {/* Success Icon */}
           <div className="mb-4 flex items-center justify-center">
-            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-lime-100 text-lime-600">
+            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-blue-100 text-blue-600">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-10 w-10"
@@ -29,7 +29,7 @@ function Submission() {
           </div>
 
           {/* Success Message */}
-          <h1 className="text-center text-2xl font-semibold text-lime-600">
+          <h1 className="text-center text-2xl font-semibold text-blue-600">
             Form Submission Successful 🎉
           </h1>
           <p className="mt-2 text-center text-lg text-gray-800">
@@ -40,7 +40,7 @@ function Submission() {
           <p className="mt-4 text-center text-gray-600">
             You can view your submission by clicking
             <a
-              href={configs.userResponseUrl}
+              href={configs.userResponse}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block transform rounded-full bg-gradient-to-r from-teal-400 to-blue-500 px-8 py-4 text-lg font-semibold text-white shadow-lg transition-all hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-teal-300"

@@ -2,8 +2,8 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { RiSparklingFill } from "react-icons/ri";
 import Intro from "@/components/Intro";
-import configs from "@/utils/configs";
-import spamDetect from "../utils/spamDetected";
+import configs from "@/utils/configs.js";
+import spamDetect from "@/utils/spamDetected";
 
 const services = [
   "Website Design",
@@ -17,6 +17,7 @@ const services = [
 function Form() {
   const navigate = useNavigate();
 
+  // Form Hooks
   const {
     register,
     handleSubmit,
@@ -44,7 +45,7 @@ function Form() {
     formData.append(configs.message, data.message);
     formData.append(configs.services, data.services);
 
-    fetch(configs.submitUrl, {
+    fetch(configs.submit, {
       method: "POST",
       mode: "no-cors",
       body: formData,
@@ -76,7 +77,7 @@ function Form() {
           })}
           id="fullname"
           placeholder="Your name"
-          className="border-b border-stone-700 p-2 placeholder-gray-700 md:bg-blue-400"
+          className="border-b border-stone-700 p-2 placeholder-gray-700 md:bg-blue-100"
         />
         {errors.fullname && (
           <p className="text-red-500">{errors.fullname.message}</p>
@@ -93,7 +94,7 @@ function Form() {
           })}
           id="email"
           placeholder="you@company.com"
-          className="border-b border-stone-700 p-2 placeholder-gray-700 md:bg-blue-400"
+          className="border-b border-stone-700 p-2 placeholder-gray-700 md:bg-blue-100"
         />
         {errors.email && <p className="text-red-500">{errors.email.message}</p>}
 
@@ -108,7 +109,7 @@ function Form() {
           })}
           id="message"
           placeholder="Tell us a bit about your project..."
-          className="h-24 border-b border-stone-700 p-2 placeholder-gray-700 md:bg-blue-400"
+          className="h-24 border-b border-stone-700 p-2 placeholder-gray-700 md:bg-blue-100"
         />
         {errors.message && (
           <p className="text-red-500">{errors.message.message}</p>
